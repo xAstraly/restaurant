@@ -1,7 +1,6 @@
 on:
   push:
     branches: [main]
-
   pull_request:
     branches: [main]
 
@@ -10,5 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ouverture
-        run: "addition.test.js"
+      # 1. Récupère le code de votre dépôt sur la machine virtuelle
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      # 2. Installe Node.js (nécessaire pour exécuter du JS)
+      - name: Configuration de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Installe les dépendances (si vous en avez, ex: Jest)
+      - name: Installation des dépendances
+        run: npm install
+
+      # 4. Exécute les tests (généralement via la commande npm test)
+      - name: Exécution des tests
+        run: npm test
