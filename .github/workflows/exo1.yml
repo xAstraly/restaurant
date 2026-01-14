@@ -14,4 +14,4 @@ jobs:
 
     steps:
       - name: ouverture
-        run: echo "Restaurant ouvert ! ";
+        run: echo "kakaouétte ";
