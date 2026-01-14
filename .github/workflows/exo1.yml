@@ -11,3 +11,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: ouverture
+        run: echo "Restaurant ouvert ! ";
